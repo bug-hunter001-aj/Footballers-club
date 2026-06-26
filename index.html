@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Footballers Hub | 3D Dark Brown Glowing Experience</title>
-  <!-- Font Awesome 6 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>Footballers Elite Hub | Messi & Ronaldo | Live Action</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -14,604 +13,699 @@
     }
 
     body {
-      font-family: 'Segoe UI', 'Poppins', 'Inter', system-ui, sans-serif;
-      background: radial-gradient(circle at 20% 30%, #3b2c1e, #1f140a);
+      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #0a1f0a 0%, #1a3a1a 30%, #2d1b4e 70%, #1a0a2e 100%);
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 1.5rem;
-      margin: 0;
+      padding: 1rem;
       position: relative;
       overflow-x: hidden;
     }
 
-    /* floating glowing orbs background */
+    /* Animated background particles */
     body::before {
       content: "";
-      position: absolute;
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at 80% 10%, rgba(210, 140, 70, 0.25) 0%, transparent 45%),
-                  radial-gradient(circle at 10% 90%, rgba(160, 100, 40, 0.3) 0%, transparent 50%);
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(0, 255, 100, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.08) 0%, transparent 50%);
       pointer-events: none;
+      z-index: 0;
+      animation: bgPulse 8s ease-in-out infinite alternate;
     }
 
-    /* main hub - 3D dark glass card */
+    @keyframes bgPulse {
+      0% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+
+    /* Main container */
     .hub-container {
-      max-width: 1000px;
+      max-width: 1100px;
       width: 100%;
-      background: rgba(30, 18, 8, 0.65);
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
-      background: linear-gradient(145deg, rgba(45, 30, 18, 0.8) 0%, rgba(20, 12, 5, 0.9) 100%);
-      border-radius: 4rem 4rem 3.5rem 3.5rem;
+      background: rgba(10, 20, 10, 0.75);
+      backdrop-filter: blur(30px);
+      border-radius: 3rem;
+      padding: 2rem;
       box-shadow: 
-        0 40px 70px rgba(0, 0, 0, 0.8),
-        0 0 0 2px rgba(180, 120, 50, 0.5),
-        inset 0 2px 15px rgba(255, 200, 100, 0.25),
-        0 0 80px rgba(210, 140, 50, 0.5);
-      padding: 2rem 2.2rem 2.5rem;
-      border: 1px solid rgba(200, 140, 60, 0.7);
+        0 30px 60px rgba(0, 0, 0, 0.8),
+        0 0 0 2px rgba(34, 197, 94, 0.4),
+        0 0 0 4px rgba(147, 51, 234, 0.3),
+        0 0 80px rgba(34, 197, 94, 0.3),
+        0 0 120px rgba(147, 51, 234, 0.2);
+      border: 2px solid rgba(34, 197, 94, 0.5);
       position: relative;
       z-index: 2;
-      transition: all 0.3s ease;
+      animation: containerGlow 3s ease-in-out infinite alternate;
     }
 
-    /* artistic 3D edge glow */
-    .hub-container::after {
-      content: "";
-      position: absolute;
-      inset: -3px;
-      border-radius: inherit;
-      background: linear-gradient(45deg, #b87c3a, #5c3b1a, #d49c5c, #3b2410);
-      z-index: -1;
-      filter: blur(15px);
-      opacity: 0.7;
-      animation: glowPulse 4s infinite alternate;
+    @keyframes containerGlow {
+      0% { box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 0 2px rgba(34,197,94,0.4), 0 0 80px rgba(34,197,94,0.3); }
+      100% { box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 0 2px rgba(147,51,234,0.5), 0 0 100px rgba(147,51,234,0.4); }
     }
 
-    @keyframes glowPulse {
-      0% { opacity: 0.5; filter: blur(10px); }
-      100% { opacity: 0.9; filter: blur(20px); }
-    }
-
-    /* header with 3D depth */
+    /* Header with player images */
     .header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      margin-bottom: 2.2rem;
-      background: rgba(20, 10, 2, 0.7);
-      backdrop-filter: blur(15px);
-      margin: -2rem -2.2rem 2rem -2.2rem;
-      padding: 1.8rem 2.5rem;
-      border-radius: 3rem 3rem 2.5rem 2.5rem;
-      color: #f3d59c;
-      box-shadow: 
-        0 18px 30px rgba(0,0,0,0.8),
-        inset 0 1px 10px rgba(255,215,130,0.5),
-        0 0 25px #b87c3a;
-      border-bottom: 2px solid #d49c5c;
-      position: relative;
-    }
-
-    .header::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(180deg, rgba(255,180,60,0.2) 0%, transparent 80%);
-      border-radius: inherit;
-      pointer-events: none;
+      margin: -2rem -2rem 2rem -2rem;
+      padding: 1.5rem 2rem;
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(147, 51, 234, 0.2));
+      border-radius: 3rem 3rem 2rem 2rem;
+      border-bottom: 2px solid rgba(147, 51, 234, 0.5);
+      backdrop-filter: blur(20px);
     }
 
     .logo-area {
       display: flex;
       align-items: center;
       gap: 1rem;
-      z-index: 2;
     }
 
     .logo-icon {
-      font-size: 3rem;
-      color: #ffae42;
-      filter: drop-shadow(0 0 15px #ff8c00) drop-shadow(0 6px 10px black);
-      animation: floatBall 3s ease-in-out infinite;
+      font-size: 2.8rem;
+      color: #22c55e;
+      filter: drop-shadow(0 0 15px #22c55e) drop-shadow(0 0 30px #9333ea);
+      animation: iconPulse 2s ease-in-out infinite;
     }
 
-    @keyframes floatBall {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
-      100% { transform: translateY(0px); }
+    @keyframes iconPulse {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 15px #22c55e); }
+      50% { transform: scale(1.1); filter: drop-shadow(0 0 25px #9333ea); }
     }
 
     .logo-text {
-      font-size: 2.2rem;
+      font-size: 2rem;
       font-weight: 900;
-      letter-spacing: 2px;
+      background: linear-gradient(135deg, #22c55e, #9333ea, #22c55e);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 3s ease infinite;
       text-transform: uppercase;
-      background: linear-gradient(180deg, #ffd58c, #b87333);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-shadow: 4px 4px 8px rgba(0,0,0,0.8);
-      filter: drop-shadow(0 0 12px #b87333);
     }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     .logo-text span {
-      font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 3px;
-      background: linear-gradient(180deg, #ebc184, #9e7a4b);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 0.85rem;
       display: block;
+      letter-spacing: 2px;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      color: #fadfaa;
-      font-weight: 700;
-      z-index: 2;
-      text-shadow: 0 2px 5px black;
-    }
-    .nav-links span {
-      background: rgba(60, 35, 15, 0.6);
-      padding: 0.5rem 1.2rem;
-      border-radius: 2.5rem;
-      backdrop-filter: blur(10px);
-      border: 1px solid #b48b4b;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
-      transition: 0.3s;
-    }
-    .nav-links span:hover {
-      background: #b87333;
-      color: #1e0f02;
-      border-color: #ffd966;
-    }
-    .nav-links i {
-      margin-right: 0.4rem;
-      color: #ffb347;
-    }
-
-    /* info cards - 3D neumorphic dark brown */
-    .info-grid {
+    /* Player showcase cards */
+    .players-showcase {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      gap: 1.4rem;
-      margin-bottom: 2.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
     }
 
-    .info-card {
-      background: #2f1e0f;
-      border-radius: 2.2rem;
-      padding: 1.4rem 1rem;
-      box-shadow: 
-        0 15px 0 #140b03,
-        0 20px 35px rgba(0,0,0,0.7),
-        inset 2px 2px 10px rgba(255,200,100,0.3),
-        inset -4px -4px 10px rgba(0,0,0,0.8);
-      border: 1px solid #a57c4b;
-      transition: all 0.25s ease;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      background: linear-gradient(145deg, #3a2818, #1f1306);
+    .player-card {
+      background: linear-gradient(145deg, rgba(34, 197, 94, 0.15), rgba(147, 51, 234, 0.15));
+      border-radius: 2rem;
+      padding: 1.5rem;
+      border: 2px solid rgba(147, 51, 234, 0.4);
+      backdrop-filter: blur(15px);
+      transition: all 0.3s ease;
       position: relative;
-      backdrop-filter: blur(5px);
+      overflow: hidden;
     }
 
-    .info-card:hover {
-      transform: translateY(-7px) scale(1.02);
-      box-shadow: 
-        0 18px 0 #0d0601,
-        0 25px 45px black,
-        0 0 30px #d49c5c;
-      border-color: #f7b32b;
+    .player-card:hover {
+      transform: translateY(-5px);
+      border-color: #22c55e;
+      box-shadow: 0 20px 40px rgba(34, 197, 94, 0.3);
     }
 
-    .info-icon {
-      font-size: 2.6rem;
-      background: radial-gradient(circle at 30% 30%, #4d3118, #1f1104);
-      color: #f3b95b;
-      border-radius: 50%;
+    .player-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .player-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 1.5rem;
+      margin-bottom: 1rem;
+      border: 2px solid rgba(147, 51, 234, 0.5);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: all 0.3s ease;
+    }
+
+    .player-card:hover .player-image {
+      border-color: #22c55e;
+      box-shadow: 0 15px 40px rgba(34, 197, 94, 0.4);
+    }
+
+    .player-stats {
+      display: flex;
+      justify-content: space-around;
+      margin: 1rem 0;
       padding: 0.8rem;
-      width: 65px;
-      height: 65px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: inset 0 4px 8px rgba(255,215,0,0.6), 0 8px 18px black;
-      border: 1px solid #cf9f5e;
+      background: rgba(0,0,0,0.3);
+      border-radius: 1rem;
     }
 
-    .info-text h3 {
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
       font-weight: 800;
-      color: #fad38b;
-      font-size: 1.2rem;
-      text-shadow: 0 2px 4px black;
-    }
-    .info-text p {
-      color: #dbbc7c;
-      font-weight: 500;
-      font-size: 0.9rem;
-    }
-
-    /* experience header */
-    .experience-header {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      margin: 2rem 0 1.2rem;
-      color: #efd09e;
-      text-shadow: 0 4px 6px black;
-    }
-    .experience-header i {
-      font-size: 2.4rem;
-      color: #ffae42;
-      filter: drop-shadow(0 0 12px #f90);
-    }
-    .experience-header h2 {
-      font-weight: 900;
-      font-size: 1.9rem;
-      background: linear-gradient(to right, #e7b468, #ffdd99);
+      background: linear-gradient(135deg, #22c55e, #9333ea);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      border-bottom: 3px dashed #d49c5c;
     }
 
-    /* form - glass morphism dark */
-    .experience-form {
-      background: rgba(35, 22, 10, 0.7);
-      backdrop-filter: blur(30px);
-      border-radius: 2.5rem;
-      padding: 1.5rem 1.7rem;
+    .stat-label {
+      color: #a3a3a3;
+      font-size: 0.8rem;
+    }
+
+    .player-name {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: white;
+      text-align: center;
+      margin: 0.5rem 0;
+    }
+
+    /* Live match section */
+    .live-match {
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(147, 51, 234, 0.2));
+      border-radius: 2rem;
+      padding: 1.5rem;
       margin-bottom: 2rem;
-      border: 1px solid #bd8b4a;
+      border: 2px solid rgba(147, 51, 234, 0.3);
+      backdrop-filter: blur(20px);
+    }
+
+    .match-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .live-badge {
+      background: #22c55e;
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 1rem;
+      font-weight: 700;
+      animation: livePulse 1s ease-in-out infinite;
+    }
+
+    @keyframes livePulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .match-score {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: white;
+    }
+
+    .team {
+      text-align: center;
+    }
+
+    .team-name {
+      font-size: 1rem;
+      color: #22c55e;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Experience form */
+    .experience-form {
+      background: rgba(0,0,0,0.3);
+      border-radius: 2rem;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border: 2px solid rgba(147, 51, 234, 0.3);
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
-      align-items: center;
-      box-shadow: 
-        inset 0 2px 15px rgba(255,180,50,0.25),
-        0 15px 30px rgba(0,0,0,0.8),
-        0 0 30px #b87333;
     }
 
-    .experience-form input, 
+    .experience-form input,
     .experience-form textarea {
-      flex: 1 1 200px;
-      padding: 0.9rem 1.4rem;
-      border-radius: 2.5rem;
-      border: 1px solid #b48b4b;
+      flex: 1;
+      padding: 0.8rem 1.2rem;
+      border-radius: 1.5rem;
+      border: 1px solid rgba(147, 51, 234, 0.5);
+      background: rgba(0,0,0,0.5);
+      color: white;
       outline: none;
       font-family: inherit;
-      font-size: 0.95rem;
-      background: rgba(15, 8, 3, 0.8);
-      color: #ffe9c7;
-      backdrop-filter: blur(15px);
-      transition: 0.25s;
-      box-shadow: inset 2px 2px 10px black, 0 0 12px rgba(200,130,50,0.4);
+      transition: all 0.3s;
     }
 
-    .experience-form input::placeholder,
-    .experience-form textarea::placeholder {
-      color: #c9a87c;
-      font-style: italic;
-    }
-
-    .experience-form textarea {
-      border-radius: 2rem;
-      resize: vertical;
-      min-height: 48px;
-    }
-
-    .experience-form input:focus, 
+    .experience-form input:focus,
     .experience-form textarea:focus {
-      border-color: #f7b32b;
-      box-shadow: 0 0 25px #f90, inset 0 0 12px #ffb84d;
-      background: #1f1408;
+      border-color: #22c55e;
+      box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
     }
 
-    .btn-add {
-      background: radial-gradient(circle at 30% 30%, #b87333, #4a2c14);
-      color: #ffeec2;
+    .btn-post {
+      background: linear-gradient(135deg, #22c55e, #9333ea);
+      color: white;
       border: none;
-      padding: 0.9rem 2rem;
-      border-radius: 3rem;
-      font-weight: 800;
-      font-size: 1.05rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      padding: 0.8rem 2rem;
+      border-radius: 2rem;
+      font-weight: 700;
       cursor: pointer;
-      transition: 0.25s;
-      box-shadow: 
-        0 10px 0 #2b1808,
-        0 8px 25px black,
-        0 0 20px #d4882b;
-      border: 1px solid #e6b45c;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
+      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(147, 51, 234, 0.5);
     }
 
-    .btn-add:hover {
-      background: radial-gradient(circle at 30% 30%, #d4943c, #693d18);
-      box-shadow: 0 12px 0 #1f0f02, 0 0 35px #ffae42;
-      transform: translateY(-2px);
+    .btn-post:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(34, 197, 94, 0.5);
     }
 
-    /* experiences list */
+    /* Experiences list */
     .experiences-list {
-      max-height: 380px;
+      max-height: 400px;
       overflow-y: auto;
-      padding-right: 0.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-      margin-top: 0.5rem;
-    }
-
-    /* custom scroll */
-    .experiences-list::-webkit-scrollbar {
-      width: 8px;
-    }
-    .experiences-list::-webkit-scrollbar-track {
-      background: #2a1a09;
-      border-radius: 10px;
-    }
-    .experiences-list::-webkit-scrollbar-thumb {
-      background: #b87c3a;
-      border-radius: 10px;
-      box-shadow: inset 0 0 6px black;
+      padding: 0.5rem;
     }
 
     .experience-item {
-      background: rgba(25, 15, 5, 0.8);
-      backdrop-filter: blur(20px);
-      border-radius: 2rem;
-      padding: 1.2rem 1.5rem;
-      box-shadow: 
-        0 10px 20px rgba(0,0,0,0.7),
-        inset 0 1px 10px rgba(255,200,80,0.3);
-      border-left: 9px solid #f7b32b;
-      border-top: 1px solid #cc9f5c;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.9rem;
-      transition: 0.2s;
-      background: linear-gradient(120deg, #2d1d0b, #1a0e03);
+      background: rgba(0,0,0,0.3);
+      border-radius: 1.5rem;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #22c55e;
+      transition: all 0.3s;
     }
 
     .experience-item:hover {
-      border-left-color: #ffae42;
-      box-shadow: 0 0 35px #cc8a3a;
-      background: #2a1a09;
+      border-left-color: #9333ea;
+      background: rgba(147, 51, 234, 0.1);
     }
 
-    .user-avatar {
-      font-size: 2.8rem;
-      color: #eeaf5a;
-      background: #3b2814;
-      border-radius: 50%;
-      padding: 0.3rem;
-      width: 50px;
-      text-align: center;
-      filter: drop-shadow(0 0 8px black);
-    }
-
-    .exp-content .player-name {
-      font-weight: 800;
-      color: #fad38b;
-      font-size: 1.2rem;
+    .exp-header {
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.8rem;
+      margin-bottom: 0.5rem;
     }
-    .exp-message {
-      color: #ecd59b;
-      margin-top: 0.3rem;
-      font-style: italic;
-      word-break: break-word;
+
+    .exp-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #22c55e, #9333ea);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
     }
+
+    .exp-name {
+      font-weight: 700;
+      color: #22c55e;
+    }
+
     .exp-time {
-      font-size: 0.7rem;
-      color: #c2a06b;
-      margin-top: 0.4rem;
+      color: #6b7280;
+      font-size: 0.8rem;
+    }
+
+    .exp-message {
+      color: #d1d5db;
+      margin-top: 0.5rem;
+    }
+
+    .exp-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.8rem;
+    }
+
+    .btn-action {
+      background: none;
+      border: none;
+      color: #6b7280;
+      cursor: pointer;
+      transition: all 0.3s;
       display: flex;
       align-items: center;
       gap: 0.3rem;
     }
 
-    .empty-message {
-      text-align: center;
-      color: #b49462;
-      padding: 2.5rem;
-      font-weight: 600;
-      background: rgba(0,0,0,0.3);
-      border-radius: 2rem;
+    .btn-action:hover {
+      color: #22c55e;
     }
 
-    .footer-note {
-      margin-top: 2rem;
-      text-align: center;
-      color: #dbbd7a;
-      font-weight: 700;
-      display: flex;
-      justify-content: center;
-      gap: 1.8rem;
-      font-size: 0.9rem;
-      text-shadow: 0 2px 4px black;
+    .btn-like.active {
+      color: #22c55e;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hub-container {
+        padding: 1rem;
+        border-radius: 2rem;
+      }
+      .header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+      .match-score {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
   <div class="hub-container">
+    <!-- Header -->
     <div class="header">
       <div class="logo-area">
         <i class="fas fa-futbol logo-icon"></i>
         <div class="logo-text">
-          FOOTBALLERS<span>elite experience</span>
+          Elite Footballers<span>Messi & Ronaldo Era</span>
         </div>
       </div>
-      <div class="nav-links">
-        <span><i class="fas fa-fire"></i> Trending</span>
-        <span><i class="fas fa-crown"></i> Legends</span>
+      <div style="display: flex; gap: 1rem; color: white; font-weight: 600;">
+        <span style="background: rgba(34,197,94,0.3); padding: 0.5rem 1rem; border-radius: 1rem;">
+          <i class="fas fa-fire"></i> Trending
+        </span>
+        <span style="background: rgba(147,51,234,0.3); padding: 0.5rem 1rem; border-radius: 1rem;">
+          <i class="fas fa-trophy"></i> GOATs
+        </span>
       </div>
     </div>
 
-    <!-- Info cards with 3D dark brown glow -->
-    <div class="info-grid">
-      <div class="info-card">
-        <div class="info-icon"><i class="fas fa-bolt"></i></div>
-        <div class="info-text">
-          <h3>Speed Drill</h3>
-          <p>Agility ladder + resistance sprints.</p>
+    <!-- Messi & Ronaldo Showcase -->
+    <div class="players-showcase">
+      <!-- Messi Card -->
+      <div class="player-card">
+        <img 
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg/800px-Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg" 
+          alt="Lionel Messi" 
+          class="player-image"
+          onerror="this.src='https://via.placeholder.com/400x200/22c55e/ffffff?text=Messi'"
+        >
+        <div class="player-name">Lionel Messi 🇦🇷</div>
+        <div class="player-stats">
+          <div class="stat-item">
+            <div class="stat-value" id="messiGoals">821</div>
+            <div class="stat-label">Goals</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">361</div>
+            <div class="stat-label">Assists</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">8</div>
+            <div class="stat-label">Ballon d'Or</div>
+          </div>
         </div>
+        <button onclick="updateStats('messi')" style="width:100%; padding:0.5rem; background: linear-gradient(135deg, #22c55e, #9333ea); border:none; border-radius:1rem; color:white; font-weight:700; cursor:pointer;">
+          <i class="fas fa-plus-circle"></i> Add Goal
+        </button>
       </div>
-      <div class="info-card">
-        <div class="info-icon"><i class="fas fa-dumbbell"></i></div>
-        <div class="info-text">
-          <h3>Power</h3>
-          <p>Plyometrics & explosive jumps.</p>
+
+      <!-- Ronaldo Card -->
+      <div class="player-card">
+        <img 
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Cristiano_Ronaldo_playing_for_Al_Nassr_FC_against_Persepolis%2C_September_2023_%28cropped%29.jpg/800px-Cristiano_Ronaldo_playing_for_Al_Nassr_FC_against_Persepolis%2C_September_2023_%28cropped%29.jpg" 
+          alt="Cristiano Ronaldo" 
+          class="player-image"
+          onerror="this.src='https://via.placeholder.com/400x200/9333ea/ffffff?text=Ronaldo'"
+        >
+        <div class="player-name">Cristiano Ronaldo 🇵🇹</div>
+        <div class="player-stats">
+          <div class="stat-item">
+            <div class="stat-value" id="ronaldoGoals">873</div>
+            <div class="stat-label">Goals</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">254</div>
+            <div class="stat-label">Assists</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">5</div>
+            <div class="stat-label">Ballon d'Or</div>
+          </div>
         </div>
-      </div>
-      <div class="info-card">
-        <div class="info-icon"><i class="fas fa-brain"></i></div>
-        <div class="info-text">
-          <h3>Vision</h3>
-          <p>Scanning drills, decision making.</p>
-        </div>
+        <button onclick="updateStats('ronaldo')" style="width:100%; padding:0.5rem; background: linear-gradient(135deg, #9333ea, #22c55e); border:none; border-radius:1rem; color:white; font-weight:700; cursor:pointer;">
+          <i class="fas fa-plus-circle"></i> Add Goal
+        </button>
       </div>
     </div>
 
-    <div class="experience-header">
-      <i class="fas fa-comment-dots"></i>
-      <h2>Match Experiences</h2>
+    <!-- Live Match Section -->
+    <div class="live-match">
+      <div class="match-header">
+        <h3 style="color: white;"><i class="fas fa-futbol"></i> Live Match</h3>
+        <span class="live-badge"><i class="fas fa-circle"></i> LIVE</span>
+      </div>
+      <div class="match-score">
+        <div class="team">
+          <div class="team-name">Inter Miami</div>
+          <div style="font-size: 2rem;" id="teamAScore">2</div>
+        </div>
+        <div style="color: #9333ea;">VS</div>
+        <div class="team">
+          <div class="team-name">Al Nassr</div>
+          <div style="font-size: 2rem;" id="teamBScore">2</div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 1rem;">
+        <button onclick="updateMatchScore()" style="background: rgba(147,51,234,0.3); border: 1px solid #9333ea; color: white; padding: 0.5rem 1.5rem; border-radius: 1rem; cursor: pointer;">
+          <i class="fas fa-sync-alt"></i> Update Score
+        </button>
+      </div>
     </div>
 
-    <div class="experience-form" id="experienceForm">
-      <input type="text" id="playerNameInput" placeholder="Your football name" maxlength="30">
-      <textarea id="experienceInput" rows="2" placeholder="Describe your moment... (hat-trick, assist, training)" maxlength="200"></textarea>
-      <button class="btn-add" id="addExperienceBtn"><i class="fas fa-plus-circle"></i> Share</button>
+    <!-- Experience Sharing -->
+    <div style="color: white; margin: 1.5rem 0;">
+      <h2><i class="fas fa-comments" style="color: #22c55e;"></i> Players' Experiences</h2>
+    </div>
+
+    <div class="experience-form">
+      <input type="text" id="playerName" placeholder="Your name" maxlength="30">
+      <textarea id="experienceText" rows="2" placeholder="Share your football moment..."></textarea>
+      <button class="btn-post" onclick="addExperience()">
+        <i class="fas fa-paper-plane"></i> Post
+      </button>
     </div>
 
     <div class="experiences-list" id="experiencesContainer">
-      <div class="empty-message">
-        <i class="fas fa-futbol" style="font-size: 2.5rem; opacity: 0.6;"></i>
-        <p>No stories yet. Ignite the pitch!</p>
-      </div>
-    </div>
-
-    <div class="footer-note">
-      <span><i class="fas fa-shield-haltered"></i> Brotherhood</span>
-      <span><i class="fas fa-trophy"></i> 2026 Vision</span>
+      <!-- Dynamic content -->
     </div>
   </div>
 
   <script>
-    (function() {
-      const playerNameInput = document.getElementById('playerNameInput');
-      const experienceInput = document.getElementById('experienceInput');
-      const addBtn = document.getElementById('addExperienceBtn');
-      const experiencesContainer = document.getElementById('experiencesContainer');
+    // Real action functionality
+    let messiGoals = 821;
+    let ronaldoGoals = 873;
+    let teamAScore = 2;
+    let teamBScore = 2;
+    let experiences = JSON.parse(localStorage.getItem('football_experiences')) || [];
 
-      let experiences = [];
-
-      function loadExperiences() {
-        const stored = localStorage.getItem('footballers_3d_experiences');
-        if (stored) {
-          try { experiences = JSON.parse(stored); } catch (e) { experiences = []; }
-        } else {
-          experiences = [
-            {
-              id: Date.now() - 150000,
-              name: "Thierry S.",
-              message: "Scored from 35 yards in training. Coach went wild!",
-              timestamp: new Date(Date.now() - 5400000).toISOString()
-            },
-            {
-              id: Date.now() - 280000,
-              name: "Alexia P.",
-              message: "Perfect cross to winning goal. Teamwork makes the dream work.",
-              timestamp: new Date(Date.now() - 9000000).toISOString()
-            }
-          ];
-          saveExperiences();
+    // Initialize with some real experiences
+    if (experiences.length === 0) {
+      experiences = [
+        {
+          id: 1,
+          name: "Football Fan",
+          message: "Messi's World Cup win was the greatest moment in football history! 🐐",
+          timestamp: new Date(Date.now() - 3600000).toISOString(),
+          likes: 47,
+          liked: false
+        },
+        {
+          id: 2,
+          name: "CR7 Fan",
+          message: "Ronaldo's bicycle kick against Juventus is still the best goal ever! 🔥",
+          timestamp: new Date(Date.now() - 7200000).toISOString(),
+          likes: 38,
+          liked: false
         }
+      ];
+      saveExperiences();
+    }
+
+    function saveExperiences() {
+      localStorage.setItem('football_experiences', JSON.stringify(experiences));
+    }
+
+    function updateStats(player) {
+      if (player === 'messi') {
+        messiGoals++;
+        document.getElementById('messiGoals').textContent = messiGoals;
+        // Animate
+        document.getElementById('messiGoals').style.transform = 'scale(1.5)';
+        setTimeout(() => {
+          document.getElementById('messiGoals').style.transform = 'scale(1)';
+        }, 300);
+      } else {
+        ronaldoGoals++;
+        document.getElementById('ronaldoGoals').textContent = ronaldoGoals;
+        document.getElementById('ronaldoGoals').style.transform = 'scale(1.5)';
+        setTimeout(() => {
+          document.getElementById('ronaldoGoals').style.transform = 'scale(1)';
+        }, 300);
+      }
+    }
+
+    function updateMatchScore() {
+      const random = Math.random();
+      if (random < 0.5) {
+        teamAScore++;
+        document.getElementById('teamAScore').textContent = teamAScore;
+      } else {
+        teamBScore++;
+        document.getElementById('teamBScore').textContent = teamBScore;
+      }
+      
+      // Flash effect
+      const scoreElement = random < 0.5 ? document.getElementById('teamAScore') : document.getElementById('teamBScore');
+      scoreElement.style.color = '#22c55e';
+      scoreElement.style.transform = 'scale(1.5)';
+      setTimeout(() => {
+        scoreElement.style.color = 'white';
+        scoreElement.style.transform = 'scale(1)';
+      }, 500);
+    }
+
+    function addExperience() {
+      const name = document.getElementById('playerName').value.trim();
+      const message = document.getElementById('experienceText').value.trim();
+      
+      if (!name || !message) {
+        alert('Please fill in both fields');
+        return;
       }
 
-      function saveExperiences() {
-        localStorage.setItem('footballers_3d_experiences', JSON.stringify(experiences));
-      }
+      const newExp = {
+        id: Date.now(),
+        name: name,
+        message: message,
+        timestamp: new Date().toISOString(),
+        likes: 0,
+        liked: false
+      };
 
-      function getRelativeTime(timestamp) {
-        const now = new Date();
-        const time = new Date(timestamp);
-        const diffSec = Math.floor((now - time) / 1000);
-        if (diffSec < 60) return 'Just now';
-        const diffMin = Math.floor(diffSec / 60);
-        if (diffMin < 60) return `${diffMin}m ago`;
-        const diffHr = Math.floor(diffMin / 60);
-        if (diffHr < 24) return `${diffHr}h ago`;
-        return time.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-      }
-
-      function escapeHTML(str) {
-        return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-      }
-
-      function renderExperiences() {
-        if (!experiencesContainer) return;
-        experiencesContainer.innerHTML = '';
-        if (experiences.length === 0) {
-          experiencesContainer.innerHTML = `<div class="empty-message"><i class="fas fa-futbol" style="font-size:2.5rem;opacity:0.6;"></i><p>No stories yet. Ignite the pitch!</p></div>`;
-          return;
-        }
-        const sorted = [...experiences].sort((a, b) => new Date(b.timestamp || b.id) - new Date(a.timestamp || a.id));
-        for (let exp of sorted) {
-          const div = document.createElement('div');
-          div.className = 'experience-item';
-          div.innerHTML = `
-            <div class="user-avatar"><i class="fas fa-user-circle"></i></div>
-            <div class="exp-content">
-              <div class="player-name"><i class="fas fa-futbol"></i> ${escapeHTML(exp.name)}</div>
-              <div class="exp-message">“${escapeHTML(exp.message)}”</div>
-              <div class="exp-time"><i class="far fa-clock"></i> ${getRelativeTime(exp.timestamp)}</div>
-            </div>`;
-          experiencesContainer.appendChild(div);
-        }
-      }
-
-      function addExperience() {
-        const name = playerNameInput.value.trim();
-        const message = experienceInput.value.trim();
-        if (!name) { alert('Enter your football name'); return; }
-        if (!message) { alert('Share your experience'); return; }
-        experiences.push({
-          id: Date.now(),
-          name: name,
-          message: message,
-          timestamp: new Date().toISOString()
-        });
-        saveExperiences();
-        playerNameInput.value = '';
-        experienceInput.value = '';
-        renderExperiences();
-        experiencesContainer.scrollTop = experiencesContainer.scrollHeight;
-      }
-
-      addBtn.addEventListener('click', addExperience);
-      playerNameInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') { e.preventDefault(); experienceInput.focus(); } });
-      experienceInput.addEventListener('keypress', (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); addExperience(); } });
-
-      loadExperiences();
+      experiences.unshift(newExp);
+      saveExperiences();
       renderExperiences();
-    })();
+      
+      document.getElementById('playerName').value = '';
+      document.getElementById('experienceText').value = '';
+    }
+
+    function likeExperience(id) {
+      const exp = experiences.find(e => e.id === id);
+      if (exp) {
+        if (!exp.liked) {
+          exp.likes++;
+          exp.liked = true;
+        } else {
+          exp.likes--;
+          exp.liked = false;
+        }
+        saveExperiences();
+        renderExperiences();
+      }
+    }
+
+    function getTimeAgo(timestamp) {
+      const now = new Date();
+      const past = new Date(timestamp);
+      const diff = Math.floor((now - past) / 1000);
+      
+      if (diff < 60) return 'Just now';
+      if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
+      if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
+      return past.toLocaleDateString();
+    }
+
+    function renderExperiences() {
+      const container = document.getElementById('experiencesContainer');
+      container.innerHTML = '';
+      
+      experiences.forEach(exp => {
+        const div = document.createElement('div');
+        div.className = 'experience-item';
+        div.innerHTML = `
+          <div class="exp-header">
+            <div class="exp-avatar">${exp.name[0].toUpperCase()}</div>
+            <div>
+              <div class="exp-name">${exp.name}</div>
+              <div class="exp-time">${getTimeAgo(exp.timestamp)}</div>
+            </div>
+          </div>
+          <div class="exp-message">${exp.message}</div>
+          <div class="exp-actions">
+            <button class="btn-action btn-like ${exp.liked ? 'active' : ''}" onclick="likeExperience(${exp.id})">
+              <i class="fas fa-heart"></i> ${exp.likes}
+            </button>
+            <button class="btn-action">
+              <i class="fas fa-share"></i> Share
+            </button>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    // Auto-update match time
+    setInterval(() => {
+      const liveBadge = document.querySelector('.live-badge');
+      if (liveBadge) {
+        liveBadge.style.opacity = liveBadge.style.opacity === '0.5' ? '1' : '0.5';
+      }
+    }, 1000);
+
+    // Initial render
+    renderExperiences();
+
+    // Add keyboard shortcut for posting
+    document.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' && e.ctrlKey) {
+        addExperience();
+      }
+    });
   </script>
 </body>
 </html>
